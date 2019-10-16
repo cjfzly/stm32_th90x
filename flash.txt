@@ -1,0 +1,70 @@
+void flash_test(void)
+{
+
+#if 1
+    //²Á³ý
+    uint8_t tmp = 0;
+    /* Unlock the Flash to enable the flash control register access *************/
+    FLASH_Unlock();
+    /* Clear pending flags (if any) */
+    FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR);
+
+    /* Define the number of page to be erased */
+    NbrOfPage = (FLASH_USER_END_ADDR - FLASH_USER_START_ADDR) / FLASH_PAGE_SIZE;
+    ////printf("Flash erase begin:\r\n");
+    /* Erase the FLASH pages */
+    for(EraseCounter = 0; (EraseCounter < NbrOfPage) && (FLASHStatus == FLASH_COMPLETE); EraseCounter++)
+    {
+        if (FLASH_ErasePage(FLASH_USER_START_ADDR + (FLASH_PAGE_SIZE * EraseCounter))!= FLASH_COMPLETE)
+        {
+            /* Error occurred while sector erase.
+                User can add here some code to deal with this error  */
+            while (1)
+            {
+            }
+        }
+    }
+    ////printf("Flash erase over.\r\n");
+    //Ð´Èë
+    Address = FLASH_USER_START_ADDR;
+//	//printf("Flash write begin:\r\n");
+    while (Address < FLASH_USER_START_ADDR+9*4)
+    {
+
+        if (FLASH_ProgramWord(Address, default_setting_buf[tmp++]) == FLASH_COMPLETE)
+        {
+            Address = Address + 4;
+        }
+        else
+        {
+            /* Error occurred while writing data in Flash memory.
+               User can add here some code to deal with this error */
+            while (1)
+            {
+            }
+        }
+    }
+
+    /* Lock the Flash to disable the flash control register access (recommended
+       to protect the FLASH memory against possible unwanted operation) *********/
+    FLASH_Lock();
+    ////printf("Flash write over.\r\n");
+    //¶Á³ö
+    Address = FLASH_USER_START_ADDR;
+    MemoryProgramStatus = PASSED;
+// //printf("Flash read begin.\r\n");
+    while (Address < FLASH_USER_START_ADDR+9*4)
+    {
+        Data = *(__IO uint32_t *)Address;
+        //printf("0x%x %0.1f\r\n",Data,Data/10.0);
+        if (Data != DATA_32)
+        {
+            MemoryProgramStatus = FAILED;
+        }
+
+        Address = Address + 4;
+    }
+    // //printf("Flash read over.\r\n");
+#endif
+
+}

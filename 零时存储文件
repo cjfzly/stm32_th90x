@@ -1,0 +1,11 @@
+						  
+{"bin name:","RTC adj","get bt module id","get bt bandrate","get bt fac name:",
+"set bt fac name","read bt mac","set bt sn","get bt sn:",
+"Set min conn OK!","Set max conn OK!","set bt adv",
+ "ADXL362 is offline!","flash id :","FLASH Test" ,"th902 init end","t_led_off",
+"FLASH Test Failed!","t_led_off\rLed turn off:\r TH902#"};
+
+{"TH902_V1.1.1","<INVALID_ERR>","<id=05L>","<57600>","<256000>","error!","ok!",
+"<TH902>","MAC=fc:0","Set min conn ERROR!","Set max conn ERROR!","Set min conn OK!",
+"Set max conn OK!","FLASH Test Passed! 32M","FLASH Test Passed! 64M","FLASH Test Passed! 128M"};						   				   
+						   
