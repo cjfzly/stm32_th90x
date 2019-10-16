@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\output\control_board.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\output\control_board.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed Oct 16 16:14:14 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed Oct 16 17:33:59 2019
 <BR><P>
-<H3>Maximum Stack Usage =       2240 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       2232 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 th902_wv &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 <P>
@@ -265,7 +265,7 @@ Global Symbols
 <P><STRONG><a name="[175]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[6b]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 448 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; fuc1 &rArr; select_do &rArr; light_test &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1802,8 +1802,8 @@ Global Symbols
 <P><STRONG><a name="[55]"></a>fputc</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, usart.o(i.fputc))
 <BR>[Address Reference Count : 1]<UL><LI> _printf_char_file.o(.text)
 </UL>
-<P><STRONG><a name="[102]"></a>fuc1</STRONG> (Thumb, 1826 bytes, Stack size 32 bytes, main.o(i.fuc1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
+<P><STRONG><a name="[102]"></a>fuc1</STRONG> (Thumb, 1820 bytes, Stack size 24 bytes, main.o(i.fuc1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 448 + Unknown Stack Size
 <LI>Call Chain = fuc1 &rArr; select_do &rArr; light_test &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
@@ -2067,8 +2067,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;select_do
 </UL>
 
-<P><STRONG><a name="[119]"></a>mac_MAC</STRONG> (Thumb, 360 bytes, Stack size 56 bytes, main.o(i.mac_MAC))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = mac_MAC &rArr; strlen
+<P><STRONG><a name="[119]"></a>mac_MAC</STRONG> (Thumb, 356 bytes, Stack size 48 bytes, main.o(i.mac_MAC))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = mac_MAC &rArr; strlen
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;a_A
@@ -2084,8 +2084,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;select_do
 </UL>
 
-<P><STRONG><a name="[6c]"></a>main</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
+<P><STRONG><a name="[6c]"></a>main</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 448 + Unknown Stack Size
 <LI>Call Chain = main &rArr; fuc1 &rArr; select_do &rArr; light_test &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
@@ -2139,7 +2139,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_uart
 </UL>
 
-<P><STRONG><a name="[11d]"></a>printf_system_infortation</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, main.o(i.printf_system_infortation))
+<P><STRONG><a name="[11d]"></a>printf_system_infortation</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, main.o(i.printf_system_infortation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = printf_system_infortation &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2510,8 +2510,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_sleep_i
 </UL>
 
-<P><STRONG><a name="[17]"></a>th902_wv</STRONG> (Thumb, 192 bytes, Stack size 2112 bytes, command.o(i.th902_wv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 2240 + Unknown Stack Size
+<P><STRONG><a name="[17]"></a>th902_wv</STRONG> (Thumb, 190 bytes, Stack size 2104 bytes, command.o(i.th902_wv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 2232 + Unknown Stack Size
 <LI>Call Chain = th902_wv &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_write_halfword
@@ -2594,7 +2594,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fuc_select
 </UL>
 
-<P><STRONG><a name="[1b]"></a>w_rtc</STRONG> (Thumb, 210 bytes, Stack size 96 bytes, command.o(i.w_rtc))
+<P><STRONG><a name="[1b]"></a>w_rtc</STRONG> (Thumb, 208 bytes, Stack size 96 bytes, command.o(i.w_rtc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = w_rtc &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>

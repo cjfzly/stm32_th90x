@@ -549,7 +549,7 @@ uint8_t io_clean (int argc, uint8_t *argv[])
 uint8_t th902_wv(int argc, uint8_t *argv[])
 {
   char length=0;
-  uint8_t i,j=0;
+  uint8_t i;
   char version[30];
   char save_data0[2048];
 	
@@ -624,7 +624,7 @@ uint8_t th902_rv(int argc, uint8_t *argv[])
 uint8_t w_rtc(int argc, uint8_t *argv[])
 {
   char length=0;
-  uint8_t i,j=0;
+  uint8_t i;
   char rtc_save[30];
   char save_data0[30];
   u16   rtc_length=0;
@@ -723,7 +723,7 @@ uint8_t r_rtc(int argc, uint8_t *argv[])
 uint8_t w_rtc_base(int argc, uint8_t *argv[])
 {
 char length=0;
-  uint8_t i,j=0;
+  uint8_t i=0;
   char rtc_base_save[30];
   char save_data0[30];
   u16   rtc_length=0;	
@@ -906,16 +906,11 @@ uint8_t do_cpu_reset(int argc, uint8_t *argv[])
 //保存的数据，头信息
 uint8_t printf_addr_pos_data (int argc, uint8_t *argv[])
 {
-  uint32_t addr_in=0;
   if(argc!=2)
   {
     printf("bad command!\r\n");   
     return 0;
   }  
-  
-  addr_in=(uint32_t)str_to_u(argv[1]);
-    
-
     return 0;
 }
 

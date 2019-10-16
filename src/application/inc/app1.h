@@ -29,7 +29,7 @@ void light_test(void);
 extern int light_value(void);
 void test_fail(void);
 void test_success(void);
-void test_danger();
+void test_danger(void);
 
 extern void array_sort(float array[],int sum_numbers);
 extern float delect_average(float array[],int delect_numbers,int sum_numbers);

@@ -14,6 +14,7 @@
 **（3）解决waiting时，系统出现死机的情况（此时串口2有干扰数据，导致buffer存满溢出）
 **（4）屏蔽在测量期间对串口1的数据进行处理 20191012
 **（5）测试工作电流和睡眠电流期间，增加判数据稳定操作 20191014
+**遗留问题：充电电流、睡眠电流还存在遗留问题
 *****************************************************************/
 #include "usr.h"
 
@@ -105,7 +106,7 @@ void select_do(int i);
 void fuc1(void);
 char aly_time(char time[] , char i);
 void rtc_write(void);
-void rtc_judge();
+void rtc_judge(void);
 float rtc_trance(char rtc[]);
 void waiting(void);
 
@@ -140,7 +141,6 @@ char data_stable_flag=0;
 
 void printf_system_infortation(void)
 {
-	int i=0;
 	printf("\r\n\r\ntest_board:%s\r\n",STR(BIN_NAME));					//打印当前bin文件的文件名
 //	printf("****Compile time : %s %s****\r\n",__DATE__,__TIME__);
 	printf("TH902_soft_version:%s\r\n",th902_v_save);
@@ -248,12 +248,9 @@ void main_init()
 
 int main(void)
 {	
-	int light_vlu=0;
-	int TS_V=0;
 	main_init();
 	printf_system_infortation();
 	
-//	flash_test();
 	
 	waiting();
 	while(1)
@@ -941,7 +938,7 @@ void fuc1(void)
 	if(adc_flag>0&&t3finish_flag==1&&work_i_flag==1)
 	{
 		static int i=0;
-				int j=0;
+		
 		t3finish_flag=0;//1ms定时器标志
 		//24欧采样电阻
 		adc_sum+=1.0*3300000/4096/480*Get_Adc(ADC_Channel_5);
@@ -1165,7 +1162,7 @@ void mac_translate(char *temp,u8 get[])
 
 void mac_MAC(u8 *mac_array,u8 MAC_array[])
 {
-	int i=0,j=0,m=0,n=0;
+	int i=0,m=0;
 	int mac_a=0,mac_b=0,mac_c=0,mac_d=0,mac_e=0;
 	int len=0;
 	len=strlen((char *)mac_array);
@@ -1277,6 +1274,7 @@ u8 a_A(u8 a_in)
 	{
 		return a_in;
 	}
+	return a_in;
 }
 
 
@@ -1374,6 +1372,7 @@ float data_if_stable(int number,float data,float off_data_value,int overtime)
 //		printf("%d组稳定，通过\r\n",number);
 		return i_tempt;	
 	}
+	return NULL;
 }
 
 
