@@ -48,7 +48,6 @@ FLASH_Status flash_status=FLASH_COMPLETE;
 
 void flash_test(void)
 {
-	int i=0;
 	printf("write data=%d\r\n",strlen((char *)write_data0));
 	flash_write_halfword(FLASH_SAVE_ADDR1,write_data0,10);//以半字的形式来进行写入
 //	flash_write_halfword(FLASH_SAVE_ADDR3,write_data0,strlen((char *)write_data0)-1);
@@ -78,7 +77,7 @@ u32 flash_readword(u32 faddr)
 //读取一定长度的字节放在数组pBuffer中
 void flash_read_bites(u32 ReadAddr,char *rBuffer,u16 NumToRead)   	
 {
-	u16 i,j;
+	u16 i;
 	for(i=0;i<NumToRead;i++)
 	{
 		rBuffer[i]=flash_readbites(ReadAddr);//读取字节.
@@ -95,7 +94,7 @@ void flash_read_bites(u32 ReadAddr,char *rBuffer,u16 NumToRead)
 //读取一定长度的字节后打印
 void flash_rd_bites(u32 ReadAddr,u16 NumToRead)
 {
-	u16 i,j;
+	u16 i;
 	for(i=0;i<NumToRead;i++)
 	{
 		printf("%x ",flash_readbites(ReadAddr));//读取字节.
@@ -156,8 +155,6 @@ void flash_write_u16(u32 WriteAddr,u16 wBuffer[],u16 NumToWrite)
 void flash_write_halfword(u32 WriteAddr,u16 wBuffer[],u16 NumToWrite)
 {
 	float i=0,j=0,m,n,x;
-	int erase_begin;
-	int erase_end;
 	
 	FLASH_Unlock();
 	FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPRTERR);
